@@ -8,7 +8,7 @@ var rl = readline.createInterface({
 
 var recursiveAsyncReadLine = function () {
     rl.question('Mot de passe: ', function (answer) {
-        exec('./checkPassword', function(err, stdout, stderr) {
+        exec(sq.quote(['./checkPassword.sh', answer]), function(err, stdout, stderr) {
             reponse = stdout.replace(/(\r\n|\n|\r)/gm, "")
             console.log(reponse)
             if(reponse == 'true'){
