@@ -10,8 +10,7 @@ var recursiveAsyncReadLine = function () {
     rl.question('Mot de passe: ', function (answer) {
         exec(sq.quote(['./.serveur/checkPassword.sh', answer]), function(err, stdout, stderr) {
             reponse = stdout.replace(/(\r\n|\n|\r)/gm, "")
-            console.log("Mot de passe entrée : ", stdout)
-            console.log("Erreur : ", stderr)
+            console.log("Résultat vérification : ", stdout)
             if(reponse == 'true'){
                 console.log("Vous êtes connecté");
                 return rl.close();
